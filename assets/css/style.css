@@ -28,6 +28,15 @@ body {
   font-size: 2.5rem;
   font-weight: 800;
   letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
 }
 
 .logo span {
