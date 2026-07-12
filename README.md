@@ -29,11 +29,24 @@ tintorgal-info/
 
 Le site est entièrement statique. Les articles sont écrits directement dans `index.html`.
 
+### Règle d'or — Couvrir TOUTES les catégories
+
+Chaque mise à jour doit impérativement contenir **au moins un article par catégorie** :
+- Politique
+- Économie
+- Sport
+- Société
+- Faits Divers
+- Culture
+- International / Monde
+
+**Il ne faut jamais publier une mise à jour incomplète.** Si une catégorie n'a pas d'article récent, chercher plus loin ou sur une autre source.
+
 ### Mode de fonctionnement actuel
 
 Chaque mise à jour est faite manuellement via l'assistant IA (opencode) :
 1. L'assistant recherche les dernières infos sur les sites d'actualité guinéenne
-2. Il sélectionne les articles pertinents par catégorie
+2. Il sélectionne **au moins un article par catégorie**
 3. Il met à jour le fichier `index.html`
 4. Il commit et push sur GitHub
 5. Netlify déploie automatiquement
