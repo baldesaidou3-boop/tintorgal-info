@@ -29,17 +29,44 @@ tintorgal-info/
 
 Le site est entièrement statique. Les articles sont écrits directement dans `index.html`.
 
+### Catégories
+
+Chaque catégorie a sa propre section sur la page d'accueil :
+
+| Section      | Tag utilisé      |
+|--------------|------------------|
+| **À la une** | Article principal|
+| Politique    | `Politique`      |
+| Économie     | `Économie`       |
+| Sport        | `Sport`          |
+| Société      | `Société`        |
+| Faits Divers | `Faits Divers`   |
+| Culture      | `Culture`        |
+| International| `Monde`          |
+
 ### Mettre à jour les articles
 
 1. Ouvrir `index.html`
-2. Remplacer les articles dans `<section class="articles-grid">` et l'article principal dans `<section class="featured">`
+2. Pour chaque catégorie, remplacer les articles dans sa `<section class="articles-grid">`. Mettre à jour aussi l'article principal dans `<section class="featured">`
 3. Chaque article contient :
    - Une image placeholder (`https://placehold.co/...`)
-   - Un tag (Politique, Société, Sport, etc.)
+   - Un tag correspondant à la catégorie
    - Un titre `<h2>` ou `<h3>`
    - Une date `<p class="meta">`
    - Un extrait `<p>`
    - Un lien vers la source complète (guineenews.org)
+4. Toujours vérifier qu'on a au moins **1 article par catégorie**
+
+### Source par catégorie
+
+Aller sur https://guineenews.org et filtrer par catégorie via le menu, ou utiliser les URLs directes :
+- **Politique** : https://guineenews.org/category/news/politique/
+- **Économie** : https://guineenews.org/category/news/economie/
+- **Sport** : https://guineenews.org/category/sport/
+- **Société** : chercher dans les articles récents
+- **Faits Divers** : https://guineenews.org/category/news/faitsdivers/
+- **Culture** : https://guineenews.org/category/news/artculture/
+- **Monde** : https://guineenews.org/category/lemonde/
 
 ### Déploiement (CI/CD)
 
