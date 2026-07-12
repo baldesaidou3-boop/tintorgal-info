@@ -68,6 +68,28 @@ Aller sur https://guineenews.org et filtrer par catégorie via le menu, ou utili
 - **Culture** : https://guineenews.org/category/news/artculture/
 - **Monde** : https://guineenews.org/category/lemonde/
 
+## Dernière mise à jour (12 juillet 2026)
+
+| Section       | Titre |
+|---------------|-------|
+| **À la une**  | Symposium au Palais du Peuple : hommage à Hadja Andrée Touré |
+| **Politique** | Assemblée nationale : installation des députés le 17 juillet |
+| **Politique** | Décès de Hadja Andrée : drapeau national mis en berne |
+| **Économie**  | Patrimoine de l'État : gestion innovante et mobilisation record des dividendes |
+| **Économie**  | La Chine veut accompagner la Guinée dans production d'électricité |
+| **Sport**     | Le ministre Cellou Baldé prend acte de la dissolution de la FGF |
+| **Sport**     | Mondial 2026 : le rêve africain s'arrête en quarts |
+| **Société**   | Hadja Andrée élevée au grade de commandeur de l'Ordre du Colatier |
+| **Société**   | Vandalisme avéré sur les cinq nouveaux ponts de Conakry |
+| **Société**   | Kindia : retards des chantiers de ponts |
+| **Faits Divers** | N'Zérékoré : audiences criminelles, 9 affaires de viol |
+| **Faits Divers** | Mamou : accident de la circulation fait 15 morts |
+| **Culture**   | La Guinée retrouve l'âme de sa culture |
+| **Culture**   | Kankan : 86e édition de la Mamaya |
+| **International** | Visas Schengen : l'UE durcit les règles pour les Guinéens |
+| **International** | Droit du sol USA : la Cour suprême désavoue Trump |
+| **International** | Trafic de migrants : faux consulat démantelé en Sierra Leone |
+
 ### Déploiement (CI/CD)
 
 1. `git add .`
