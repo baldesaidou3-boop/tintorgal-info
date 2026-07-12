@@ -1,0 +1,49 @@
+name: Mise à jour quotidienne des articles
+
+on:
+  schedule:
+    # Tous les jours à 8h00 UTC (soit 9h00 à Conakry)
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+    # Permet de lancer manuellement depuis l'onglet Actions
+
+permissions:
+  contents: write
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Configurer Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer les dépendances
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Lancer l'agrégateur d'actualités
+        run: |
+          python scripts/update_news.py
+
+      - name: Vérifier les modifications
+        id: check
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit et push
+        if: steps.check.outputs.changed == 'true'
+        run: |
+          git config user.name "Tintorgal Bot"
+          git config user.email "bot@tintorgal-info.com"
+          git add index.html
+          git commit -m "auto: mise à jour quotidienne des articles ($(date +'%d/%m/%Y'))"
+          git push

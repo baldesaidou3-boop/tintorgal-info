@@ -120,6 +120,32 @@ git commit -m "Mise à jour des articles"
 git push
 ```
 
+## Automatisation (GitHub Actions)
+
+Le site se met à jour **automatiquement tous les jours à 8h00 UTC** (9h00 Conakry) via GitHub Actions.
+
+### Fonctionnement
+
+1. **Le script** `scripts/update_news.py` scrape les 3 sources (guineenews.org, africaguinee.com, guinee360.com)
+2. Il collecte les articles par catégorie (Politique, Économie, Sport, Société, Faits Divers, Culture, Monde)
+3. Il déduplique, classe par fraîcheur et génère le `index.html`
+4. Si des modifications sont détectées, il commit et push automatiquement
+5. Netlify redéploie le site
+
+### Déclenchement manuel
+
+Tu peux aussi lancer la mise à jour manuellement depuis GitHub :
+1. Va sur https://github.com/baldesaidou3-boop/tintorgal-info/actions
+2. Clique sur "Mise à jour quotidienne des articles"
+3. Clique sur "Run workflow"
+
+### Ajouter une source
+
+Pour ajouter une source, édite `scripts/update_news.py` :
+1. Ajoute une entrée dans la liste `SOURCES` (nom + URLs par catégorie)
+2. Crée une fonction `parse_nom()` 
+3. Ajoute-la dans le dictionnaire `parsers` de la fonction `collect_articles()`
+
 ## Notes
 
 - Les images utilisent des placeholders placehold.co (pas de stockage local)
