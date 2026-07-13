@@ -10,6 +10,7 @@ import re
 from datetime import datetime
 import os
 import sys
+import html
 import urllib.parse
 
 HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
@@ -429,7 +430,7 @@ def update_index_html(main_html):
     with open(index_path, "w", encoding="utf-8") as f:
         f.write(new_content)
 
-    print(f"\n✓ index.html mis à jour")
+    print("\n[OK] index.html mis a jour")
 
 
 def estimate_date(text):
@@ -483,7 +484,7 @@ def main():
 
     main_html = generate_main_html(featured, articles_by_cat, today)
     update_index_html(main_html)
-    print("\n✓ Terminé !")
+    print("\n[OK] Termine !")
 
 
 if __name__ == "__main__":
