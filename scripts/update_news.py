@@ -60,6 +60,29 @@ SOURCES = [
             "Monde": "https://www.guinee360.com/category/news/monde/",
         },
     },
+    {
+        "name": "refletguinee.com",
+        "urls": {
+            "Politique": "https://www.refletguinee.com/category/politique/",
+            "Économie": "https://www.refletguinee.com/category/economie/",
+            "Société": "https://www.refletguinee.com/category/societe/",
+            "Sport": "https://www.refletguinee.com/category/sport-culture/",
+            "Culture": "https://www.refletguinee.com/category/sport-culture/",
+            "Faits Divers": "https://www.refletguinee.com/category/actualites/",
+            "Monde": "https://www.refletguinee.com/category/international/",
+        },
+    },
+    {
+        "name": "africa24tv.com",
+        "urls": {
+            "Politique": "https://africa24tv.com/category/politique/",
+            "Économie": "https://africa24tv.com/category/economie/",
+            "Sport": "https://africa24tv.com/category/sport/",
+            "Société": "https://africa24tv.com/category/societe/",
+            "Culture": "https://africa24tv.com/category/culture/",
+            "Monde": "https://africa24tv.com/category/pays/guinee/",
+        },
+    },
 ]
 
 
@@ -261,6 +284,8 @@ def collect_articles():
         "guineenews.org": parse_guineenews,
         "africaguinee.com": parse_africaguinee,
         "guinee360.com": parse_guinee360,
+        "refletguinee.com": parse_refletguinee,
+        "africa24tv.com": parse_africa24tv,
     }
 
     for source in SOURCES:
@@ -431,6 +456,92 @@ def update_index_html(main_html):
         f.write(new_content)
 
     print("\n[OK] index.html mis a jour")
+
+
+def parse_refletguinee(html_text, category):
+    soup = BeautifulSoup(html_text, "html.parser")
+    articles = []
+    seen = set()
+    for article in soup.select("article.l-post"):
+        title_el = article.select_one("h2.is-title a, h3.is-title a, h4.is-title a")
+        if not title_el:
+            continue
+        title = title_el.get_text(strip=True)
+        url = title_el.get("href", "")
+        if not url or len(title) < 10:
+            continue
+        if url in seen:
+            continue
+        seen.add(url)
+        if not url.startswith("http"):
+            url = "https://www.refletguinee.com" + url
+
+        excerpt_el = article.select_one(".excerpt p")
+        excerpt = excerpt_el.get_text(strip=True)[:200] if excerpt_el else title
+
+        date_text = ""
+        date_el = article.select_one("time")
+        if date_el:
+            date_text = date_el.get("datetime", "") or date_el.get_text(strip=True)
+        date = extract_date(date_text)
+
+        articles.append({
+            "title": title, "url": url, "date": date,
+            "excerpt": excerpt, "category": category,
+            "source": "refletguinee.com",
+        })
+    return articles
+
+
+def parse_africa24tv(html_text, category):
+    soup = BeautifulSoup(html_text, "html.parser")
+    articles = []
+    seen = set()
+    for heading in soup.find_all(["h2", "h3", "h4"]):
+        a = heading.find("a")
+        if not a or not a.get("href"):
+            continue
+        url = a["href"]
+        if not url.startswith("http"):
+            url = "https://africa24tv.com" + url
+        title = a.get_text(strip=True)
+        if not title or len(title) < 10:
+            continue
+        if url in seen:
+            continue
+        seen.add(url)
+
+        excerpt = ""
+        parent = heading.find_parent(["article", "div", "li"])
+        if parent:
+            p = parent.find("p")
+            if p:
+                excerpt = p.get_text(strip=True)[:200]
+
+        date_text = ""
+        if parent:
+            spans = parent.find_all("span", class_=re.compile(r"date|meta|time|post"))
+            for sp in spans:
+                txt = sp.get_text(strip=True)
+                if re.search(r"\d{4}", txt):
+                    date_text = txt
+                    break
+            if not date_text:
+                for el in parent.find_all(["span", "div", "p"]):
+                    txt = el.get_text(strip=True)
+                    m = re.search(r"(\d{1,2}\s+(janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\s+\d{4})", txt, re.IGNORECASE)
+                    if m:
+                        date_text = m.group(1)
+                        break
+
+        date = extract_date(date_text)
+
+        articles.append({
+            "title": title, "url": url, "date": date,
+            "excerpt": excerpt or title, "category": category,
+            "source": "africa24tv.com",
+        })
+    return articles
 
 
 def estimate_date(text):
