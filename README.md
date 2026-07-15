@@ -5,9 +5,9 @@ Site d'actualité guinéenne statique. Informations en continu.
 ## Stack
 
 - **HTML / CSS / JS** — Site statique vanilla
-- **Hébergement** — Netlify (`tintorgal-info.netlify.app`)
+- **Hébergement** — GitHub Pages (`baldesaidou3-boop.github.io/tintorgal-info`)
 - **Source** — GitHub (`baldesaidou3-boop/tintorgal-info`)
-- **CI/CD** — Netlify (auto-deploy depuis GitHub)
+- **CI/CD** — GitHub Actions (auto-deploy sur Pages à chaque push)
 
 ## Structure
 
@@ -124,7 +124,7 @@ Netlify détecte automatiquement le push sur `main` et redéploie le site en ~1-
 
 ### URLs
 
-- **Site** : https://tintorgal-info.netlify.app
+- **Site** : https://baldesaidou3-boop.github.io/tintorgal-info
 - **GitHub** : https://github.com/baldesaidou3-boop/tintorgal-info
 - **Source des articles** : https://guineenews.org
 

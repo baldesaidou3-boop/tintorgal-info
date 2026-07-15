@@ -2,10 +2,8 @@ name: Mise à jour quotidienne des articles
 
 on:
   schedule:
-    # Tous les jours à 8h00 UTC (soit 9h00 à Conakry)
     - cron: "0 8 * * *"
   workflow_dispatch:
-    # Permet de lancer manuellement depuis l'onglet Actions
 
 permissions:
   contents: write
