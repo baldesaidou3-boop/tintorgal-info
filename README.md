@@ -92,27 +92,27 @@ Aller sur https://guineenews.org et filtrer par catégorie via le menu, ou utili
 - **Culture** : https://guineenews.org/category/news/artculture/
 - **Monde** : https://guineenews.org/category/lemonde/
 
-## Dernière mise à jour (12 juillet 2026)
+## Dernière mise à jour (15 juillet 2026)
 
 | Section       | Titre |
 |---------------|-------|
-| **À la une**  | Symposium au Palais du Peuple : hommage à Hadja Andrée Touré |
-| **Politique** | Assemblée nationale : installation des députés le 17 juillet |
-| **Politique** | Décès de Hadja Andrée : drapeau national mis en berne |
-| **Économie**  | Patrimoine de l'État : gestion innovante et mobilisation record des dividendes |
-| **Économie**  | La Chine veut accompagner la Guinée dans production d'électricité |
-| **Sport**     | Le ministre Cellou Baldé prend acte de la dissolution de la FGF |
+| **À la une**  | Simbaya : quatre personnes périssent dans un violent incendie |
+| **Politique** | Kamsar : le DG de la CBG reçoit le nouveau maire |
+| **Politique** | Guinée : la HAC désigne des superviseurs bénévoles |
+| **Économie**  | Santé : l'Inde promet de renforcer son soutien à la Guinée |
+| **Économie**  | Quand le retard de l'État redore le blason des semences locales |
+| **Sport**     | NBA : Le Guinéen Alpha Diallo s'engage avec les Denver Nuggets |
 | **Sport**     | Mondial 2026 : le rêve africain s'arrête en quarts |
-| **Société**   | Hadja Andrée élevée au grade de commandeur de l'Ordre du Colatier |
-| **Société**   | Vandalisme avéré sur les cinq nouveaux ponts de Conakry |
-| **Société**   | Kindia : retards des chantiers de ponts |
-| **Faits Divers** | N'Zérékoré : audiences criminelles, 9 affaires de viol |
-| **Faits Divers** | Mamou : accident de la circulation fait 15 morts |
-| **Culture**   | La Guinée retrouve l'âme de sa culture |
-| **Culture**   | Kankan : 86e édition de la Mamaya |
-| **International** | Visas Schengen : l'UE durcit les règles pour les Guinéens |
-| **International** | Droit du sol USA : la Cour suprême désavoue Trump |
-| **International** | Trafic de migrants : faux consulat démantelé en Sierra Leone |
+| **Société**   | BEPC 2026 : taux de réussite national de 58,90% |
+| **Société**   | Guinée : risque d'inondations extrêmes les 15 et 16 juillet |
+| **Société**   | Kindia : les fruits hors de portée des consommateurs |
+| **Faits Divers** | Sanoyah : un homme en uniforme tue un DJ dans une boîte de nuit |
+| **Faits Divers** | Prison centrale : un garde pénitentiaire écope de 6 mois ferme |
+| **Culture**   | Entretien exclusif avec Kabiné Kouyaté "Kaabi" |
+| **Culture**   | Patrimoine culturel : vaste programme de recensement |
+| **International** | Sénégal : un député alerte sur des menaces visant des Guinéens |
+| **International** | UE : restrictions de visas temporaires pour les Guinéens |
+| **International** | Drame en Côte d'Ivoire : famille guinéenne décimée |
 
 ### Déploiement (CI/CD)
 
