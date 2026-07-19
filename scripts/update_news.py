@@ -41,16 +41,6 @@ SOURCES = [
         },
     },
     {
-        "name": "africaguinee.com",
-        "urls": {
-            "Politique": "https://www.africaguinee.com/category/guinee/politique/",
-            "Économie": "https://www.africaguinee.com/category/guinee/economie/",
-            "Sport": "https://www.africaguinee.com/category/sport/",
-            "Société": "https://www.africaguinee.com/category/guinee/societe/",
-            "Monde": "https://www.africaguinee.com/category/monde/",
-        },
-    },
-    {
         "name": "guinee360.com",
         "urls": {
             "Politique": "https://www.guinee360.com/category/news/politique/",
@@ -70,17 +60,6 @@ SOURCES = [
             "Culture": "https://www.refletguinee.com/category/sport-culture/",
             "Faits Divers": "https://www.refletguinee.com/category/actualites/",
             "Monde": "https://www.refletguinee.com/category/international/",
-        },
-    },
-    {
-        "name": "africa24tv.com",
-        "urls": {
-            "Politique": "https://africa24tv.com/category/politique/",
-            "Économie": "https://africa24tv.com/category/economie/",
-            "Sport": "https://africa24tv.com/category/sport/",
-            "Société": "https://africa24tv.com/category/societe/",
-            "Culture": "https://africa24tv.com/category/culture/",
-            "Monde": "https://africa24tv.com/category/pays/guinee/",
         },
     },
 ]
@@ -282,10 +261,8 @@ def collect_articles():
     all_articles = []
     parsers = {
         "guineenews.org": parse_guineenews,
-        "africaguinee.com": parse_africaguinee,
         "guinee360.com": parse_guinee360,
         "refletguinee.com": parse_refletguinee,
-        "africa24tv.com": parse_africa24tv,
     }
 
     for source in SOURCES:
@@ -592,6 +569,8 @@ def main():
     featured = pick_featured(articles_by_cat)
     if featured:
         print(f"\n  À la une: [{featured['source']}] {featured['title'][:60]}...")
+        cat = featured["category"]
+        articles_by_cat[cat] = [a for a in articles_by_cat[cat] if a["url"] != featured["url"]]
 
     main_html = generate_main_html(featured, articles_by_cat, today)
     update_index_html(main_html)
